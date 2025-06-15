@@ -1,5 +1,5 @@
 import 'dart:typed_data';
-
+import 'dart:ui' show hashValues;
 import 'package:flutter/material.dart';
 
 class SchemeData {
