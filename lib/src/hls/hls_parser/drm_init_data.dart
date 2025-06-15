@@ -1,6 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/cupertino.dart';
-
+import 'dart:ui' show hashValues;
 import 'scheme_data.dart';
 
 class DrmInitData {
