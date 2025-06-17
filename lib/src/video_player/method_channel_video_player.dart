@@ -427,7 +427,15 @@ class MethodChannelVideoPlayer extends VideoPlayerPlatform {
         creationParams: {'textureId': textureId!},
       );
     } else {
-      return Texture(textureId: textureId!);
+      final id = _textureId!;
+      if (widget.useSurfaceView && defaultTargetPlatform == TargetPlatform.android) {
+        return AndroidView(
+          viewType: 'better_player_surface',          // ІМ’Я, яке зареєстрували в Kotlin
+          creationParams: id,                         // той самий id, що й textureId
+          creationParamsCodec: const StandardMessageCodec(),
+        );
+      }
+      return Texture(textureId: id);  
     }
   }
 
