@@ -69,7 +69,7 @@ import java.util.*
 import kotlin.math.max
 import kotlin.math.min
 
-internal class BetterPlayer(
+public class BetterPlayer(
     context: Context,
     private val eventChannel: EventChannel,
     private val textureEntry: SurfaceTextureEntry,
