@@ -419,7 +419,7 @@ class MethodChannelVideoPlayer extends VideoPlayerPlatform {
   }
 
   @override
-  Widget buildView(int? textureId) {
+  Widget buildView(int? textureId, {bool useSurfaceView = false}) {
     if (defaultTargetPlatform == TargetPlatform.iOS) {
       return UiKitView(
         viewType: 'com.jhomlala/better_player',
@@ -428,7 +428,7 @@ class MethodChannelVideoPlayer extends VideoPlayerPlatform {
       );
     } else {
       final id = _textureId!;
-      if (widget.useSurfaceView && defaultTargetPlatform == TargetPlatform.android) {
+      if (useSurfaceView && defaultTargetPlatform == TargetPlatform.android) {
         return AndroidView(
           viewType: 'better_player_surface',          // ІМ’Я, яке зареєстрували в Kotlin
           creationParams: id,                         // той самий id, що й textureId
