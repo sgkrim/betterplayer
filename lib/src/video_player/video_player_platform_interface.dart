@@ -168,7 +168,7 @@ abstract class VideoPlayerPlatform {
   }
 
   /// Returns a widget displaying the video with a given textureID.
-  Widget buildView(int? textureId, {bool useSurfaceView = false}) {
+  Widget buildView(int? textureId, {bool useSurfaceView = false, FilterQuality? filterQuality}) {
     throw UnimplementedError('buildView() has not been implemented.');
   }
 
