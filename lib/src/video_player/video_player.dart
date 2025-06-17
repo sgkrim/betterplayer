@@ -641,11 +641,12 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
 /// Widget that displays the video controlled by [controller].
 class VideoPlayer extends StatefulWidget {
   /// Uses the given [controller] for all video rendered in this widget.
-  const VideoPlayer(this.controller, {Key? key}) : super(key: key);
+  const VideoPlayer(this.controller, {Key? key, this.useSurfaceView}) : super(key: key);
 
   /// The [VideoPlayerController] responsible for the video being rendered in
   /// this widget.
   final VideoPlayerController? controller;
+  final bool useSurfaceView;
 
   @override
   _VideoPlayerState createState() => _VideoPlayerState();
@@ -693,7 +694,7 @@ class _VideoPlayerState extends State<VideoPlayer> {
   Widget build(BuildContext context) {
     return _textureId == null
         ? Container()
-        : _videoPlayerPlatform.buildView(_textureId);
+        : _videoPlayerPlatform.buildView(_textureId, useSurfaceView: widget.useSurfaceView);
   }
 }
 
