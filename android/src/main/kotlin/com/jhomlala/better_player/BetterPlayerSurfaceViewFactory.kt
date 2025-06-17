@@ -19,6 +19,8 @@ class BetterPlayerSurfaceViewFactory(
     ): PlatformView {
         val betterPlayer = players[viewId.toLong()]
             ?: error("BetterPlayer with id=$viewId not found")
-        return BetterPlayerSurfaceView(context, betterPlayer.getExoPlayer()!!)
+            val exoPlayer = betterPlayer.getExoPlayer()
+            exoPlayer?.clearVideoSurface()
+        return BetterPlayerSurfaceView(context, exoPlayer!!)
     }
 }
