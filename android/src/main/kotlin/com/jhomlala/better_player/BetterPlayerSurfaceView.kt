@@ -12,9 +12,6 @@ class BetterPlayerSurfaceView(
     player: ExoPlayer
 ) : PlatformView {
     
-    init {
-        player?.clearVideoSurface()
-    }
     private val playerView = StyledPlayerView(context).apply {
         // SurfaceView використовується за замовчуванням → setUseTextureView() не потрібен
         resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FIT
