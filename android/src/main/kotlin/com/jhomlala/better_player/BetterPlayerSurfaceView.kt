@@ -19,5 +19,7 @@ class BetterPlayerSurfaceView(
     }
 
     override fun getView(): View = playerView
-    override fun dispose() {}
+    override fun dispose() {
+        player?.clearVideoSurface()
+    }
 }
