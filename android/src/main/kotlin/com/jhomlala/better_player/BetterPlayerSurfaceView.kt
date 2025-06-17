@@ -7,22 +7,17 @@ import com.google.android.exoplayer2.ui.AspectRatioFrameLayout
 import com.google.android.exoplayer2.ui.StyledPlayerView
 import io.flutter.plugin.platform.PlatformView
 
-/** PlatformView‑обгортка для SurfaceView‑рендеру. */
 class BetterPlayerSurfaceView(
     context: Context,
-    private val player: ExoPlayer
+    player: ExoPlayer
 ) : PlatformView {
 
-    private val playerView: StyledPlayerView = StyledPlayerView(context).apply {
-        // <-- ГОЛОВНЕ: апаратний SurfaceView
-        setUseTextureView(false)
+    private val playerView = StyledPlayerView(context).apply {
+        // SurfaceView використовується за замовчуванням → setUseTextureView() не потрібен
         resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FIT
         this.player = player
     }
 
     override fun getView(): View = playerView
-
-    override fun dispose() {
-        // Нічого: ExoPlayer житиме далі в SparseArray
-    }
+    override fun dispose() {}
 }
