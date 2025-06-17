@@ -107,7 +107,7 @@ public class BetterPlayer(
         loadControl = loadBuilder.build()
         exoPlayer = ExoPlayer.Builder(context)
             .setTrackSelector(trackSelector)
-            .setLoadControl(loadControl)
+            .setLoadControl(loadControl).setVideoScalingMode(C.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING)
             .build()
         workManager = WorkManager.getInstance(context)
         workerObserverMap = HashMap()
