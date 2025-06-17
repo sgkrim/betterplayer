@@ -213,12 +213,13 @@ class _BetterPlayerVideoFitWidget extends StatefulWidget {
   const _BetterPlayerVideoFitWidget(
     this.betterPlayerController,
     this.boxFit, {
-    Key? key, this.useSurfaceView = false,
+    Key? key, this.useSurfaceView = false, this.filterQuality
   }) : super(key: key);
 
   final BetterPlayerController betterPlayerController;
   final BoxFit boxFit;
   final bool useSurfaceView;
+  final FilterQuality? filterQuality;
 
   @override
   _BetterPlayerVideoFitWidgetState createState() =>
