@@ -114,6 +114,10 @@ public class BetterPlayer(
         setupVideoPlayer(eventChannel, textureEntry, result)
     }
 
+    fun getExoPlayer(): ExoPlayer? {
+        return exoPlayer
+    }
+
     fun setDataSource(
         context: Context,
         key: String?,
