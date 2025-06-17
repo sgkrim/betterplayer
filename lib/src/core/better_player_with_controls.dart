@@ -12,8 +12,9 @@ import 'package:flutter/material.dart';
 
 class BetterPlayerWithControls extends StatefulWidget {
   final BetterPlayerController? controller;
+  final bool useSurfaceView;
 
-  const BetterPlayerWithControls({Key? key, this.controller}) : super(key: key);
+  const BetterPlayerWithControls({Key? key, this.controller, this.useSurfaceView = false}) : super(key: key);
 
   @override
   _BetterPlayerWithControlsState createState() =>
@@ -135,6 +136,7 @@ class _BetterPlayerWithControlsState extends State<BetterPlayerWithControls> {
             child: _BetterPlayerVideoFitWidget(
               betterPlayerController,
               betterPlayerController.getFit(),
+              useSurfaceView: widget.useSurfaceView,
             ),
           ),
           betterPlayerController.betterPlayerConfiguration.overlay ??
@@ -210,11 +212,12 @@ class _BetterPlayerVideoFitWidget extends StatefulWidget {
   const _BetterPlayerVideoFitWidget(
     this.betterPlayerController,
     this.boxFit, {
-    Key? key,
+    Key? key, this.useSurfaceView = false,
   }) : super(key: key);
 
   final BetterPlayerController betterPlayerController;
   final BoxFit boxFit;
+  final bool useSurfaceView;
 
   @override
   _BetterPlayerVideoFitWidgetState createState() =>
@@ -308,7 +311,7 @@ class _BetterPlayerVideoFitWidgetState
               child: SizedBox(
                 width: controller!.value.size?.width ?? 0,
                 height: controller!.value.size?.height ?? 0,
-                child: VideoPlayer(controller),
+                child: VideoPlayer(controller, useSurfaceView: widget.useSurfaceView),
               ),
             ),
           ),
