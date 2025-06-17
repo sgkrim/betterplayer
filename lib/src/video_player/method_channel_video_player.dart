@@ -427,7 +427,7 @@ class MethodChannelVideoPlayer extends VideoPlayerPlatform {
         creationParams: {'textureId': textureId!},
       );
     } else {
-      final id = _textureId!;
+      final id = textureId!;
       if (useSurfaceView && defaultTargetPlatform == TargetPlatform.android) {
         return AndroidView(
           viewType: 'better_player_surface',          // ІМ’Я, яке зареєстрували в Kotlin
