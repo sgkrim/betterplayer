@@ -419,7 +419,7 @@ class MethodChannelVideoPlayer extends VideoPlayerPlatform {
   }
 
   @override
-  Widget buildView(int? textureId, {bool useSurfaceView = false}) {
+  Widget buildView(int? textureId, {bool useSurfaceView = false, FilterQuality? filterQuality}) {
     if (defaultTargetPlatform == TargetPlatform.iOS) {
       return UiKitView(
         viewType: 'com.jhomlala/better_player',
@@ -435,7 +435,7 @@ class MethodChannelVideoPlayer extends VideoPlayerPlatform {
           creationParamsCodec: const StandardMessageCodec(),
         );
       }
-      return Texture(textureId: id);  
+      return Texture(textureId: id, filterQuality: filterQuality??FilterQuality.medium,);  
     }
   }
 
