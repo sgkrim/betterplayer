@@ -13,8 +13,9 @@ import 'package:flutter/material.dart';
 class BetterPlayerWithControls extends StatefulWidget {
   final BetterPlayerController? controller;
   final bool useSurfaceView;
+  final FilterQuality? filterQuality;
 
-  const BetterPlayerWithControls({Key? key, this.controller, this.useSurfaceView = false}) : super(key: key);
+  const BetterPlayerWithControls({Key? key, this.controller, this.useSurfaceView = false, this.filterQuality}) : super(key: key);
 
   @override
   _BetterPlayerWithControlsState createState() =>
@@ -311,7 +312,7 @@ class _BetterPlayerVideoFitWidgetState
               child: SizedBox(
                 width: controller!.value.size?.width ?? 0,
                 height: controller!.value.size?.height ?? 0,
-                child: VideoPlayer(controller, useSurfaceView: widget.useSurfaceView),
+                child: VideoPlayer(controller, useSurfaceView: widget.useSurfaceView, filterQuality: widget.filterQuality),
               ),
             ),
           ),
