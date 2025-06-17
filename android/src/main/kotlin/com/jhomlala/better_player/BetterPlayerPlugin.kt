@@ -60,6 +60,11 @@ class BetterPlayerPlugin : FlutterPlugin, ActivityAware, MethodCallHandler {
             binding.textureRegistry
         )
         flutterState?.startListening(this)
+            // --- ⬇ ДОДАЙ ЦЕ: реєструємо SurfaceView‑фабрику ---
+    binding.platformViewRegistry.registerViewFactory(
+        "better_player_surface",                       // viewType
+        BetterPlayerSurfaceViewFactory(videoPlayers)   // передаємо map id -> player
+    )
     }
 
 
